@@ -7,7 +7,7 @@ s3 = boto3.resource('s3')
 storage = boto3.client('s3')
 BUCKET_NAME = 'python-example-bucket'
 
-if True:
+while True:
     bucket = s3.Bucket(BUCKET_NAME)
     for obj in bucket.objects.all():
         print(obj)
