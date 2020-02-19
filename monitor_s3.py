@@ -1,6 +1,7 @@
 import boto3
 import hashlib
 import os
+import time
 
 
 s3 = boto3.resource('s3')
@@ -8,6 +9,8 @@ storage = boto3.client('s3')
 BUCKET_NAME = 'python-example-bucket1'
 
 while True:
+    print ("Monitoring every 2 seconds")
+    time.sleep(2)
     bucket = s3.Bucket(BUCKET_NAME)
     for obj in bucket.objects.all():
         print(obj)
@@ -32,5 +35,4 @@ while True:
             os.remove ("/tmp/hash")
         else:
             print ("Doing Nothing")
-
 

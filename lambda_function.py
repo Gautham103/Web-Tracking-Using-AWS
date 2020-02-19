@@ -25,7 +25,7 @@ def lambda_handler(event, context):
     with open ("/tmp/log.txt", "wb") as f:
         f.write(webContent)
     try:
-        response = s3_client.upload_file("/tmp/log.txt", "python-example-bucket", file_name)
+        response = s3_client.upload_file("/tmp/log.txt", "python-example-bucket1", file_name)
     except ClientError as e:
         logging.error(e)
         return False
